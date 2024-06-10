@@ -19,50 +19,7 @@ Go Kitty는 고양이가 장애물(Plant Dog)을 피하며 점프하는 간단�
 
 ## 코드 설명
 
-### 1. Pygame 초기화 및 화면 설정
-```python
-import pygame
-import sys
-
-# Pygame 초기화 및 화면 설정
-pygame.init()
-pygame.display.set_caption('Go Kitty')
-MAX_WIDTH = 800
-MAX_HEIGHT = 400
-```
-- `pygame`과 `sys` 모듈을 가져옵니다.
-- `pygame.init()`을 통해 Pygame 라이브러리를 초기화합니다.
-- `pygame.display.set_caption('Go Kitty')`을 사용하여 게임 창의 제목을 설정합니다.
-- 게임 화면의 크기를 `MAX_WIDTH`와 `MAX_HEIGHT` 변수로 정의합니다.
-
-### 2. 메인 게임 함수
-```python
-def main():
-    # 화면 및 시계 설정
-    screen = pygame.display.set_mode((MAX_WIDTH, MAX_HEIGHT))
-    fps = pygame.time.Clock()
-    font = pygame.font.Font(None, 36)  # 폰트 설정
-```
-- `screen` 변수에 게임 화면을 설정합니다.
-- `fps` 변수에 `pygame.time.Clock()` 객체를 생성하여 프레임 속도를 제어합니다.
-- `font` 변수에 폰트를 설정하여 텍스트를 표시할 때 사용합니다.
-
-### 3. 이미지 로드 및 크기 조정
-```python
-    # 이미지 로드
-    imgCat1 = pygame.image.load('./cat1.png')
-    imgCat2 = pygame.image.load('./cat2.png')
-    imgPlantDog = pygame.image.load('./plant_dog.png')
-
-    # 이미지 크기 조정
-    imgCat1 = pygame.transform.scale(imgCat1, (imgCat1.get_width() * 3, imgCat1.get_height() * 3))
-    imgCat2 = pygame.transform.scale(imgCat2, (imgCat2.get_width() * 3, imgCat2.get_height() * 3))
-    imgPlantDog = pygame.transform.scale(imgPlantDog, (imgPlantDog.get_width() * 2, imgPlantDog.get_height() * 2))
-```
-- `pygame.image.load()` 함수를 사용하여 고양이 및 장애물 이미지를 로드합니다.
-- `pygame.transform.scale()` 함수를 사용하여 각 이미지의 크기를 조정합니다.
-
-### 4. 고양이 및 장애물 초기 위치 설정
+### 고양이 및 장애물 초기 위치 설정
 ```python
     # 고양이 및 장애물 초기 위치 설정
     cat_height = imgCat1.get_size()[1]
@@ -79,7 +36,7 @@ def main():
 - 고양이와 장애물의 초기 위치 및 크기를 설정합니다.
 - 고양이는 화면의 왼쪽 아래에 위치하며, 장애물은 화면의 오른쪽에 위치합니다.
 
-### 5. 게임 상태 변수 설정
+### 게임 상태 변수 설정
 ```python
     # 게임 상태 변수
     game_active = False
@@ -99,7 +56,7 @@ def main():
 - `fall_speed`: 고양이의 낙하 속도를 설정합니다.
 - `game_start_time`: 게임 시작 시간을 기록합니다.
 
-### 6. 게임 루프
+### 게임 루프
 ```python
     # 게임 루프
     while True:
@@ -126,7 +83,7 @@ def main():
 - `pygame.QUIT` 이벤트가 발생하면 게임을 종료합니다.
 - `pygame.KEYDOWN` 이벤트에서 스페이스바를 누르면 게임 상태를 변경하거나 점프를 시작합니다.
 
-### 7. 게임 상태에 따른 화면 처리
+### 게임 상태에 따른 화면 처리
 ```python
         # 게임 상태에 따른 화면 처리
         if not game_active and not game_over:  # 게임 시작 대기 화면
@@ -187,12 +144,3 @@ def main():
 - 게임 상태에 따라 화면을 업데이트합니다.
 - 게임 시작 대기 화면, 게임 진행 중, 게임 오버 화면을 처리합니다.
 - 점프, 장애물 이동, 충돌 체크, 고양이 이미지 토글, 점수 표시 등의 기능을 포함합니다.
-
-### 8. 메인 함수 호출 및 Pygame 종료
-```python
-if __name__ == '__main__':
-    main()
-    pygame.quit()
-```
-- `main()` 함수를 호출하여 게임을 시작합니다.
-- `pygame.quit()`을 호출하여 Pygame을 종료합니다.
