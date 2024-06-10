@@ -1,3 +1,4 @@
+![cat1](https://github.com/bbggr1209/Go-Kitty/assets/144644560/6a8ed237-b4c2-44b6-acf0-2fb107b7f994) ![plant_dog](https://github.com/bbggr1209/Go-Kitty/assets/144644560/91cd022b-2b9e-4d56-9ba7-7371a51c27ef)
 # Go Kitty
 
 Go Kitty는 고양이가 장애물(Plant Dog)을 피하며 점프하는 간단한 게임입니다. 스페이스바를 눌러 게임을 시작하고, 고양이가 장애물을 피하면서 점수를 획득합니다.
